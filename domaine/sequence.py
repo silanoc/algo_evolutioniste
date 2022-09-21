@@ -52,3 +52,19 @@ def calcul_score_freq_bigram(sequence: str) -> float:
         if bigram in cst.FREQ_BIGRAM:
             score += cst.FREQ_BIGRAM[bigram]
     return round(score, 2)
+
+
+def deletion_dans_sequence(sequence: str) -> str:
+    """Pour chaque caractère de la sequence, si la fréquence est inf à FREQ_DELETION, supprime le caratère de la sequence
+    
+    :param str sequence: la sequence à muter par deletion
+    :return: new_seq, sequence avec le meme nombre de caratère ou moins
+    :rtype: str
+    """
+    new_seq: str = ""
+    for caractete in sequence:
+        hasard: float = random.random()
+        if hasard > cst.FREQ_DELETION:
+            new_seq += caractete
+    return new_seq
+      
