@@ -49,5 +49,6 @@ def calcul_score_freq_bigram(sequence: str) -> float:
     score: float = 0.0
     for caract in range(len(sequence) - 1):
         bigram = sequence[caract] + sequence[caract + 1]
-        score += cst.FREQ_BIGRAM[bigram]
+        if bigram in cst.FREQ_BIGRAM:
+            score += cst.FREQ_BIGRAM[bigram]
     return round(score, 2)
