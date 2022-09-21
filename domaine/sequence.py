@@ -2,7 +2,7 @@
 # coding: utf-8
 
 import random
-import constante as cst
+import domaine.constante as cst
 
 def donne_une_lettre()-> str:
     """defini un caractere au hasard issus de la constante ALPHABET
