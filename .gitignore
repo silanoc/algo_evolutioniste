@@ -1,0 +1,8 @@
+__pycache__/
+.pytest_cache/
+
+domaine/__pycache__/
+interface/test/__pycache__/
+
+venv_algo_evol/
+conftest.py
