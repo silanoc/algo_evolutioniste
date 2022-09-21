@@ -3,7 +3,7 @@
 
 import random
 import pytest
-from domaine.sequence import donne_une_lettre, creation_sequence, calcul_score_freq_bigram, calcul_score_freq_lettre, deletion_dans_sequence
+from domaine.sequence import *
 from unittest.mock import Mock, patch                                                                                                                                                                                 
 
 def test_donne_une_lettre(mocker):
@@ -30,3 +30,22 @@ def test_deletion_dans_sequence():
     random.random.side_effect = [0.9, 0.9, 0.001, 0.9, 0.9, 0.9]
     seq = deletion_dans_sequence('AZERTY')
     assert seq == 'AZRTY'
+    
+def test_ajout_dans_sequence(mocker):
+    random.random = Mock()
+    random.random.side_effect = [0.9, 0.9, 0.001, 0.9, 0.9, 0.9]
+    mocker.patch('domaine.sequence.donne_une_lettre', return_value='W')
+    seq = ajout_dans_sequence('AZERTY')
+    assert seq == 'AZEWRTY'
+    
+def test_changement_dans_sequence(mocker):
+    random.random = Mock()
+    random.random.side_effect = [0.9, 0.9, 0.001, 0.9, 0.9, 0.9]
+    mocker.patch('domaine.sequence.donne_une_lettre', return_value='W')
+    seq = changement_dans_sequence('AZERTY')
+    assert seq == 'AZWRTY'
+    
+def test_crossing_over(mocker):
+    mocker.patch('random.randint', return_value=2)
+    seq1, seq2 = crossing_over('AZERTY', 'QSDFGHJ')
+    assert seq1 == "AZEFGHJ" and seq2 == "QSDRTY"

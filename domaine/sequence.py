@@ -62,9 +62,40 @@ def deletion_dans_sequence(sequence: str) -> str:
     :rtype: str
     """
     new_seq: str = ""
-    for caractete in sequence:
+    for caractere in sequence:
         hasard: float = random.random()
         if hasard > cst.FREQ_DELETION:
-            new_seq += caractete
+            new_seq += caractere
     return new_seq
       
+def ajout_dans_sequence(sequence: str) -> str:
+    new_seq: str = ""
+    for caractere in sequence:
+        hasard: float = random.random()
+        if hasard < cst.FREQ_AJOUT:
+            new_seq += caractere + donne_une_lettre()
+        else:
+            new_seq += caractere    
+    return new_seq
+
+def changement_dans_sequence(sequence: str) -> str:
+    new_seq: str = ""
+    for caractere in sequence:
+        hasard: float = random.random()
+        if hasard < cst.FREQ_PERMUTATION:
+            new_seq += donne_une_lettre()
+        else:
+            new_seq += caractere    
+    return new_seq
+
+def crossing_over(sequence1: str, sequence2:str)-> tuple[str]:
+    new_sequence1 = ""
+    new_sequence2 = ""
+    if len(sequence1) > len(sequence2):
+        petit = sequence2
+    else:
+        petit = sequence1
+    point_de_crossing = random.randint(0, len(petit) - 1)
+    new_sequence1 = sequence1[:point_de_crossing + 1] + sequence2[point_de_crossing + 1:]
+    new_sequence2 = sequence2[:point_de_crossing + 1] + sequence1[point_de_crossing + 1:]
+    return(new_sequence1, new_sequence2)
