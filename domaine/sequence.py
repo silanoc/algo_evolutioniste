@@ -12,10 +12,10 @@ def donne_une_lettre()-> str:
     return cst.ALPHABET[random.randint(0, len(cst.ALPHABET) -1)]
 
 
-def creation_sequence(taille: int) -> str:
+def creation_sequence(taille: int = cst.LEN_SEQ) -> str:
     """créeation d'une chaine de caractère de taille défini en parametre.
     
-    :param int taille: nombre de caractère attendu dans la chaine
+    :param int taille: nombre de caractère attendu dans la chaine. Taille par défaut dans le fichier de configuration.
     :return: sequence
     :rtype: str
     """

@@ -2,7 +2,18 @@
 # coding: utf-8
 
 """source pour les fréquences 
-https://bibmath.net/crypto/index.php?action=affiche&quoi=chasseur/frequences_francais"""
+https://bibmath.net/crypto/index.php?action=affiche&quoi=chasseur/frequences_francais
+"""
+
+"""Taille par défaut des séquences étudiées"""
+LEN_SEQ = 25 
+"""Nb de séquence à mettre dans la base de données"""
+NB_SEQ = 10
+
+"""Frequence des mutation"""
+FREQ_DELETION = 0.1
+FREQ_AJOUT = 0.05
+FREQ_PERMUTATION = 0.9
 
 ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
@@ -68,7 +79,3 @@ FREQ_BIGRAM = {'ES': 3.05, 'LE': 2.22, 'DE': 2.17, 'RE': 2.1, 'EN': 2.08, 'ON': 
                'BB': 0.01, 'ZM': 0.01, 'CM': 0.01, 'AX': 0.01, 'CP': 0.01, 'LJ': 0.01, 'FD': 0.01,
                'WE': 0.01, 'ZP': 0.01, 'UY': 0.01, 'YF': 0.01, 'AK': 0.01, 'HM': 0.01, 'ZI': 0.01,
                'DN': 0.01, 'MT': 0.01, 'WI': 0.01, 'XR': 0.01, 'SX': 0.01, 'DQ': 0.01}
-
-FREQ_DELETION = 0.1
-FREQ_AJOUT = 0.05
-FREQ_PERMUTATION = 0.9
